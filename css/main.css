@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Linefont:wght@200&family=Russo+One&display=swap');
+
+:root {
+    --hero-margin: 10px;
+    --background: #000000d9;
+
+    /* colors */
+    --red: #e81416;
+    --orange: #ffa500;
+    --yellow: #faeb36;
+    --green: #79c314;
+    --blue: #487de7;
+    --indigo: #4b369d;
+    --violet: #70369d;
+}
+
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: red;
+    cursor: none;
+}
+
+::selection {
+    background: white;
+    color: black;
+}
+
+#hero {
+    height: calc(100vh - (var(--hero-margin) * 2) - (4rem));
+    background-color: var(--background);
+    margin: var(--hero-margin);
+    border-radius: 5px;
+    backdrop-filter: blur(50px);
+    color: #fff;
+    padding: 2rem 4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+#hero #name {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: 'russo one';
+}
+
+#hero svg {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+}
+
+#hero svg path {
+    fill: #fff;
+}
+
+#hero h1 {
+    font-family: 'russo one';
+    font-size: 4rem;
+    margin-top: 0;  
+}
+
+#hero h1>span {
+    font-family: 'linefont';
+    white-space: nowrap;
+}
+
+#hero .img {
+    width: 50%;
+    position: relative;
+    float: left;
+   
+}
+
+#hero .img img {
+    width: 100%;
+}
+
+#hero .img #colorOverlay {
+    position: absolute;
+    inset: 0 0 0 0;
+    background-color: red;
+    opacity: .3;
+}
+
+
+#cursor {
+	width: var(--size);
+    aspect-ratio: 1/1;
+	position: absolute;
+	border-radius: 50%;
+	/* border: 2px solid #fff; */
+    background-color: #fff;
+    translate: -50%, -50%;
+    z-index: 10;
+    pointer-events: none;
+    /* transition: widht .1s ease-in-out, height .1s ease-in-out; */
+}
+
+#cursor::after {
+    content: attr(text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'asap';
+    font-size: 1.5rem;
+    color: #000;
+
+}
+
+
+#content {
+    /* background-color: blue; */
+    /* height: 100vh; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
+    grid-gap: 2rem;
+}
+
+#hero.article article {
+    width: 50%;
+    padding: 2rem;
+    
+}
+
+#content h2, #hero.article article h2 {
+    font-size: 2rem;
+    font-family: 'russo one';
+}
+
+#content p, #hero.article article p {
+    font-size: 1.2rem;
+    font-family: 'asap';
+    line-height: 1.6;
+}
+
+footer {
+    width: calc(100% - (var(--hero-margin) * 2));
+    margin: var(--hero-margin);
+    align-items: center;
+    height: 300px;
+	border-radius: 5px;
+
+    background: var(--background);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: #fff;
+    font-family: 'asap'
+;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid #ffffff50;
+    height: 80%;
+    font-size: 1.2rem;
+}
+
+footer div ul {
+    list-style: none;
+
+}
+
+footer div:nth-last-of-type(1){
+    border-right: none;
+}
+/* a {
+    
+    overflow: hidden;
+} */
+a {
+  display: inline;
+    text-decoration: none;
+
+  color: #fff;
+  background-image: linear-gradient(#fff, #fff);
+  /*                   ↓ height of underline  */
+  background-size: 0% 2px;
+  /*                        ↓ y position of underline. you can change as 50% to see it. */
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  transition: all 0.3s linear;
+}
+
+a:hover {
+  background-size: 100% 2px;
+}
+
+#content a {
+    background: none;
+    color: #000;
+    cursor: none;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    #content {
+        grid-template-columns: 1fr;
+    }
+     #hero .img {
+         width: 90%;
+   }
+
+   footer {
+         grid-template-columns: 1fr;
+
+   }
+   footer div {
+    border-bottom: 2px solid #ffffff50;
+   }
+   footer div:nth-last-of-type(1){
+    border-bottom: none;
+}
+    #cursor {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1050px) and (min-width: 768px) {
+   #content {
+       grid-template-columns: repeat(2, 1fr);
+   }
+   #hero .img {
+         width: 70%;
+   }
+}
+
+/* article styling */
+
+#hero.article {
+    flex-direction: row;
+}
+
